@@ -6,12 +6,12 @@ import sys
 
 def k_means(k, iter, input_data):
     # providing K "best" centroids of N points in R^d, allowing error of eps=0.001
-
+    try:
     # assert iter requirements
-    if iter <= 1 or iter >= 1000 or int(iter) != iter:
+    if iter <= 1 or iter >= 1000:
         raise Exception("Invalid maximum iteration!")
     # assert K is natural > 1 requirement
-    if k <= 1 or int(k) != k:
+    if k <= 1:
         raise Exception("Invalid number of clusters!")
 
     # store the vectors from the txt file in a list, each vector store as a list of d point
@@ -88,13 +88,11 @@ def vec_sum(v1, v2):
 # Call the k_mean function with the provided command-line arguments
 k = int(sys.argv[1])
 iter = 200
-print(len(sys.argv), sys.argv)
 if len(sys.argv) == 3:
     txt_file = sys.argv[2]
 else:
     iter = int(sys.argv[2])
     txt_file = sys.argv[3]
-
 
 print(k_means(k, iter, txt_file))
 
