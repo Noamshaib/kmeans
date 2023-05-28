@@ -94,6 +94,13 @@ else:
     iter = int(sys.argv[2])
     txt_file = sys.argv[3]
 try:
-    print(k_means(k, iter, txt_file))
+    centroids = k_means(k, iter, txt_file)
+    for centroid in centroids:
+        ret_val = ""
+        for point in centroid:
+            ret_val = ret_val + str(point) +","
+        ret_val = ret_val[:len(ret_val)-1]
+        print(ret_val)
+
 except Exception as e:
     print("An Error Has Occurred")
