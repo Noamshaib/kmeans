@@ -330,7 +330,7 @@ int main(int argc, char *argv[]){
         potential_head_centroid = malloc(sizeof(struct vector)); /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
         potential_curr_centroid = potential_head_centroid;
 
-        partition = (int *)malloc(N * sizeof(int));
+        partition = (int *)malloc((N+1) * sizeof(int));
         j=0;
         while (curr_vec != NULL){
             partition[j] = findClosestVec(curr_vec, head_centroid);
